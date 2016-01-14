@@ -42,7 +42,7 @@
                     <p>{{itemName}}</p></td>
                 <td><button ng-click="addListing()">Add</button></td>
                 
-                <tr ng-repeat="listing in listings | filter:searchListing" ng-click="showDetails(listings.indexOf(listing))">
+            <tr ng-repeat="listing in listings | orderBy:sortType | filter:searchListing" ng-click="showDetails(listings.indexOf(listing))">
                     <td><button ng-click="deleteListing(listings.indexOf(listing))">Remove</button></td>
                     <td>{{listing.code}}</td>
                     <td>{{listing.name}}</td>

@@ -2,6 +2,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
   function($scope, Listings) {
     $scope.listings = Listings;
     $scope.detailedInfo = undefined;
+    $scope.sortType = "code";
 
     /* 
       Implement these functions in the controller to make your application function 
@@ -13,6 +14,15 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         $scope.listings.push(newItem);
         $scope.itemCode = "";
         $scope.itemName = "";
+        
+        listings.sort(function(a, b){
+            var codeA=a.code.toLowerCase(), codeB=b.code.toLowerCase()
+                if (codeA < codeB) 
+                    return -1 
+                if (codeA > codeB)
+                    return 1
+                return 0 
+            });
     };
       
     $scope.deleteListing = function(index) {
