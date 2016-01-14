@@ -14,15 +14,6 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         $scope.listings.push(newItem);
         $scope.itemCode = "";
         $scope.itemName = "";
-        
-        listings.sort(function(a, b){
-            var codeA=a.code.toLowerCase(), codeB=b.code.toLowerCase()
-                if (codeA < codeB) 
-                    return -1 
-                if (codeA > codeB)
-                    return 1
-                return 0 
-            });
     };
       
     $scope.deleteListing = function(index) {
