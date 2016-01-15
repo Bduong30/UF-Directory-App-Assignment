@@ -25,26 +25,27 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 
 	$scope.showDetails = function(index) {
 		$scope.detailedInfo = $scope.listings[index];
-		var selectedLatLng = {};
+		var latLng = {};
 
 		// if the listing has no supplied coordinates, set to ufs's center
-		if($scope.listings[index].coordinates == null){
-			selectedLatLng = {
+		if($scope.detailedInfo.coordinates == null ||$scope.detailedInfo.coordinates.latitude == 0 &&                                             $scope.detailedInfo.coordinates.longitude == 0){
+			latLng = {
 				lat:  29.643697, 
 				lng: -82.354992
 			};
+            $scope.detailedInfo.address = "No address in file." 
 			map.setZoom(14);
 		}
 		else{
-			selectedLatLng = {
+			latLng = {
 				lat: Number($scope.detailedInfo.coordinates.latitude), 
 				lng: Number($scope.detailedInfo.coordinates.longitude)
 			};
-			map.setZoom(15);
+			map.setZoom(14);
 		}	
 		
 		// center map on the selected corrdinates
-		map.setCenter(new google.maps.LatLng(selectedLatLng.lat, selectedLatLng.lng));
+		map.setCenter(new google.maps.LatLng(latLng.lat, latLng.lng));
 		
 
 		// clear old marker selections
@@ -54,7 +55,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 		
 		// create a new marker with selected coordinates
 		var new_marker = new google.maps.Marker({
-			position: selectedLatLng,
+			position: latLng,
 			map: map,
 		 });
 
