@@ -30,7 +30,9 @@
   <body ng-app="directoryApp">
     <div class="container">
       <div class="row">
-        <h1>UF Directory App</h1>
+          
+        <h1><img src="http://ecx.images-amazon.com/images/I/41EwnL6y-IL.jpg">
+            UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
@@ -58,15 +60,21 @@
                       * include a way to remove individual listings
 
                 -->
-                <td></td>
+                <td>
+                    <input type= image src= "http://icons.iconarchive.com/icons/hopstarter/plastic-mini/32/Button-Add-icon.png" name = "Add" ng-click= "addListing()" />
+                    <!--<button ng-click="addListing()">Add</button></td> -->
+                </td>
                 <td><input type="text" ng-model="itemCode" placeholder="Code">
                     <p>{{itemCode}}</p></td>
                 <td><input type="text" ng-model="itemName" placeholder="Building Name">
                     <p>{{itemName}}</p></td>
-                <td><button ng-click="addListing()">Add</button></td>
                 
             <tr ng-repeat="listing in listings | orderBy:sortType | filter:searchListing" ng-click="showDetails(listings.indexOf(listing))">
-                    <td><button ng-click="deleteListing(listings.indexOf(listing))">Remove</button></td>
+                    <td>
+                    <input type = "image" src = "http://findicons.com/files/icons/2222/gloss_basic/32/delete.png" name ="Remove" ng-click="deleteListing(listings.indexOf(listing))"/>   
+                        <!--<button ng-click="deleteListing(listings.indexOf(listing))">Remove</button> -->
+
+                    </td>
                     <td>{{listing.code}}</td>
                     <td>{{listing.name}}</td>
                 </tr>
