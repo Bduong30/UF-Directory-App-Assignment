@@ -29,7 +29,7 @@
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row">
+      <div class="rowt">
           
         <h1><img src="http://ecx.images-amazon.com/images/I/41EwnL6y-IL.jpg">
             UF Directory App</h1>
@@ -65,9 +65,9 @@
                     <!--<button ng-click="addListing()">Add</button></td> -->
                 </td>
                 <td><input type="text" ng-model="itemCode" placeholder="Code">
-                    <p>{{itemCode}}</p></td>
+                    </td>
                 <td><input type="text" ng-model="itemName" placeholder="Building Name">
-                    <p>{{itemName}}</p></td>
+                    </td>
                 
             <tr ng-repeat="listing in listings | orderBy:sortType | filter:searchListing" ng-click="showDetails(listings.indexOf(listing))">
                     <td>
