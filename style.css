@@ -6,3 +6,7 @@
   max-height: 400px;
   overflow: auto;
 }
+
+h1{
+    color: blue;
+}
