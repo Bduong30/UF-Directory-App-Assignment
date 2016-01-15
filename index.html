@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
+        <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+        <script src="app.js"></script>
+        <script src="listingController.js"></script>
+        <script src="listingFactory.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">	
+        <script>
+            var map = 0;
+            var marker = 0;
+                function initialize() {
+                  var mapProp = {
+                    center:new google.maps.LatLng(29.6520,-82.3250),
+                    zoom:9,
+                    mapTypeId:google.maps.MapTypeId.ROADMAP
+                  };
+                  map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+        </script>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
@@ -65,34 +88,10 @@
 
              -->
               <td>{{detailedInfo.address}}</td>
-              <html>
-                <head>
-                <script src="http://maps.googleapis.com/maps/api/js"></script>
-                <script>
-                function initialize() {
-                  var mapProp = {
-                    center:new google.maps.LatLng(51.508742,-0.120850),
-                    zoom:10,
-                    mapTypeId:google.maps.MapTypeId.ROADMAP
-                  };
-                  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-                }
-                google.maps.event.addDomListener(window, 'load', initialize);
-                </script>
-                </head>
-
-                <body>
-                <div id="googleMap" style="width:430px;height:380px;"></div>
-                </body>
+              <div id="googleMap"></div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="app.js"></script>
-    <script src="listingController.js"></script>
-    <script src="listingFactory.js"></script>
   </body>
 </html>
