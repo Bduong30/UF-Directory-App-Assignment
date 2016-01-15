@@ -18,5 +18,13 @@ h1{
 }
 
 .rowt {
-    background-color: lightsalmon;
+    background-color: coral;
+}
+.jumbotron{
+    background-color: dodgerblue;
+    
+}
+
+h2{
+    color: coral;
 }
