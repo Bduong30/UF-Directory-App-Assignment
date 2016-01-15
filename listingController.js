@@ -28,7 +28,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 		var selectedLatLng = {};
 
 		// if the listing has no supplied coordinates, set to ufs's center
-		if($scope.listings[index].coordinates == null){
+		if($scope.listings[index].coordinates == null ||$scope.listings[index].coordinates.latitude == 0 && $scope.listings[index].coordinates.longitude == 0){
 			selectedLatLng = {
 				lat:  29.643697, 
 				lng: -82.354992
