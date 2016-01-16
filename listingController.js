@@ -10,6 +10,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       as described in the assignment spec. 
      */
     $scope.addListing = function() {
+    	var newItem = createItem();
         newItem.code = $scope.itemCode;
         newItem.name = $scope.itemName;
         $scope.listings.push(newItem);
@@ -66,7 +67,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
   }
 ]);
 
-var newItem = {
+function createItem(){
+    var item = {
         code : '', 
         name:  '',
         coordinates: {
@@ -74,4 +76,7 @@ var newItem = {
                 longitude: 0
             }, 
         address: ''
+    };
+    return item;
 };
+
